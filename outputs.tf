@@ -40,3 +40,13 @@ output "instance_info" {
     ip = module.logserver_instance.instance_ips[0]
   }
 }
+
+output "service_ip" {
+  description = "Service IP"
+  value       = module.logserver_instance.instance_ips[0]
+}
+
+output "ports" {
+  description = "Service Ports"
+  value       = var.ports
+}
