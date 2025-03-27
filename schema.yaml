@@ -5,34 +5,7 @@ components:
   schemas:
     variables:
       type: object
-      required:
-      - account_name
-      - account_password
-      - host
       properties:
-        host:
-          title: Host
-          type: string
-          description: ZStack API host
-          x-walrus-ui:
-            group: Basic
-            order: 2
-        account_name:
-          title: Account Name
-          type: string
-          description: ZStack account name
-          x-walrus-ui:
-            group: Basic
-            order: 3
-        account_password:
-          title: Account Password
-          type: string
-          description: ZStack account password
-          format: password
-          writeOnly: true
-          x-walrus-ui:
-            group: Basic
-            order: 4
         image_name:
           title: Image Name
           type: string
@@ -40,7 +13,7 @@ components:
           default: logserver-by-terraform
           x-walrus-ui:
             group: Basic
-            order: 5
+            order: 2
         image_url:
           title: Image Url
           type: string
@@ -48,7 +21,7 @@ components:
           default: http://minio.zstack.io:9001/packer/logserver-by-packer-image-compressed.qcow2
           x-walrus-ui:
             group: Basic
-            order: 6
+            order: 3
         backup_storage_name:
           title: Backup Storage Name
           type: string
@@ -56,7 +29,7 @@ components:
           default: bs
           x-walrus-ui:
             group: Basic
-            order: 7
+            order: 4
         instance_name:
           title: Instance Name
           type: string
@@ -64,7 +37,7 @@ components:
           default: logserver_instance
           x-walrus-ui:
             group: Basic
-            order: 8
+            order: 5
         l3_network_name:
           title: L3 Network Name
           type: string
@@ -72,7 +45,7 @@ components:
           default: test
           x-walrus-ui:
             group: Basic
-            order: 9
+            order: 6
         instance_offering_name:
           title: Instance Offering Name
           type: string
@@ -80,7 +53,7 @@ components:
           default: min
           x-walrus-ui:
             group: Basic
-            order: 10
+            order: 7
         ssh_user:
           title: Ssh User
           type: string
@@ -88,7 +61,7 @@ components:
           default: root
           x-walrus-ui:
             group: Basic
-            order: 11
+            order: 8
         ssh_password:
           title: Ssh Password
           type: string
@@ -98,7 +71,7 @@ components:
           writeOnly: true
           x-walrus-ui:
             group: Basic
-            order: 12
+            order: 9
       x-walrus-ui:
         groupOrder:
         - Basic

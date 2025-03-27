@@ -17,8 +17,8 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_log_server_image"></a> [log\_server\_image](#module\_log\_server\_image) | git::http://dev.zstack.io:9080/jiajian.chi/terraform-zstack-image.git | n/a |
-| <a name="module_logserver_instance"></a> [logserver\_instance](#module\_logserver\_instance) | git::http://dev.zstack.io:9080/jiajian.chi/terraform-zstack-instance.git | n/a |
+| <a name="module_log_server_image"></a> [log\_server\_image](#module\_log\_server\_image) | git::https://github.com/terraform-zstack-modules/terraform-zstack-image.git | n/a |
+| <a name="module_logserver_instance"></a> [logserver\_instance](#module\_logserver\_instance) | git::https://github.com/chijiajian/terraform-zstack-instance.git | n/a |
 
 ## Resources
 
@@ -31,11 +31,8 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_account_name"></a> [account\_name](#input\_account\_name) | ZStack account name | `string` | n/a | yes |
-| <a name="input_account_password"></a> [account\_password](#input\_account\_password) | ZStack account password | `string` | n/a | yes |
 | <a name="input_backup_storage_name"></a> [backup\_storage\_name](#input\_backup\_storage\_name) | Name of the backup storage to use | `string` | `"bs"` | no |
 | <a name="input_context"></a> [context](#input\_context) | Receive contextual information. When Walrus deploys, Walrus will inject specific contextual information into this field.<br/><br/>Examples:<pre>context:<br/>  project:<br/>    name: string<br/>    id: string<br/>  environment:<br/>    name: string<br/>    id: string<br/>  resource:<br/>    name: string<br/>    id: string</pre> | `map(any)` | `{}` | no |
-| <a name="input_host"></a> [host](#input\_host) | ZStack API host | `string` | n/a | yes |
 | <a name="input_image_name"></a> [image\_name](#input\_image\_name) | Name for the log server image | `string` | `"logserver-by-terraform"` | no |
 | <a name="input_image_url"></a> [image\_url](#input\_image\_url) | URL to download the image from | `string` | `"http://minio.zstack.io:9001/packer/logserver-by-packer-image-compressed.qcow2"` | no |
 | <a name="input_instance_name"></a> [instance\_name](#input\_instance\_name) | Name for the log server instance | `string` | `"logserver_instance"` | no |
