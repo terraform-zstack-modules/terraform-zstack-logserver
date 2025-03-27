@@ -24,24 +24,6 @@ EOF
   default     = {}
 }
 
-# variables.tf
-
-# Provider 变量
-variable "host" {
-  description = "ZStack API host"
-  type        = string
-}
-
-variable "account_name" {
-  description = "ZStack account name"
-  type        = string
-}
-
-variable "account_password" {
-  description = "ZStack account password"
-  type        = string
-  sensitive   = true
-}
 
 # 应用配置变量
 variable "image_name" {

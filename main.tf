@@ -3,20 +3,10 @@ locals {
 }
 
 
-
-provider "zstack" {  
-  host              = var.host
-  account_name      = var.account_name
-  account_password  = var.account_password
-}  
-
 # 使用镜像模块创建镜像
 module "log_server_image" {
    source = "git::https://github.com/terraform-zstack-modules/terraform-zstack-image.git"
 
-  providers = {
-    zstack = zstack
-  }
 
   image_name  = var.image_name
   image_url   = var.image_url
@@ -32,9 +22,6 @@ module "log_server_image" {
 module "logserver_instance" {
   source = "git::https://github.com/chijiajian/terraform-zstack-instance.git"
   
-  providers = {
-    zstack = zstack
-  }
 
   depends_on = [module.log_server_image]
 
