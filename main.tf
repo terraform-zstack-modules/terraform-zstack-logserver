@@ -12,7 +12,7 @@ provider "zstack" {
 
 # 使用镜像模块创建镜像
 module "log_server_image" {
-   source = "git::http://dev.zstack.io:9080/jiajian.chi/terraform-zstack-image.git"
+   source = "git::https://github.com/terraform-zstack-modules/terraform-zstack-image.git"
 
   providers = {
     zstack = zstack
@@ -30,7 +30,7 @@ module "log_server_image" {
 
 # 使用实例模块创建实例
 module "logserver_instance" {
-  source = "git::http://dev.zstack.io:9080/jiajian.chi/terraform-zstack-instance.git"
+  source = "git::https://github.com/chijiajian/terraform-zstack-instance.git"
   
   providers = {
     zstack = zstack
