@@ -53,3 +53,89 @@
 | <a name="output_walrus_resource_id"></a> [walrus\_resource\_id](#output\_walrus\_resource\_id) | The id of resource where deployed in Walrus. |
 | <a name="output_walrus_resource_name"></a> [walrus\_resource\_name](#output\_walrus\_resource\_name) | The name of resource where deployed in Walrus. |
 <!-- END_TF_DOCS -->
+
+## 服务与端口
+
+本日志服务器提供以下核心服务：
+
+1. **Rsyslog 服务**
+   - **端口**: 514 (UDP/TCP)
+   - **功能**: 接收远程系统日志消息
+   - **配置文件**: `/etc/rsyslog.conf`
+
+2. **Elasticsearch**
+   - **端口**: 9200
+   - **功能**: 日志存储和搜索引擎
+   - **验证方式**: `curl http://<服务器IP>:9200/_cluster/health`
+
+3. **Loki**
+   - **端口**: 3100
+   - **功能**: 日志聚合系统
+   - **验证方式**: `curl http://<服务器IP>:3100/ready`
+
+4. **Fluent Bit**
+   - **端口**: 24224
+   - **功能**: 日志收集和处理
+   - **验证方式**: `curl http://<服务器IP>:24224/api/v1/metrics`
+
+5. **Kafka (Web 界面)**
+   - **端口**: 9092, 9093
+   - **功能**: kafka ui
+   - **访问方式**: `http://<服务器IP>:7777`
+
+## 服务验证
+
+### Elasticsearch 验证
+```bash
+# 检查集群健康状态
+curl http://<服务器IP>:9200/_cluster/health
+
+# 查看索引列表
+curl http://<服务器IP>:9200/_cat/indices
+```
+
+### Loki 验证
+```bash
+# 检查 Loki 服务是否就绪
+curl http://<服务器IP>:3100/ready
+
+# 检查 Loki 服务状态
+curl http://<服务器IP>:3100/metrics
+```
+
+### Fluent Bit 验证
+```bash
+# 检查 Fluent Bit 指标
+curl http://<服务器IP>:24224/api/v1/metrics
+
+# 发送测试日志
+echo '{"log": "测试日志消息"}' | nc <服务器IP> 24224
+```
+
+### Rsyslog 验证
+```bash
+# 发送测试日志
+logger -n <服务器IP> -P 514 "测试系统日志消息"
+```
+
+## 配置变量说明
+
+### ZStack 连接配置
+- **host**: ZStack API 服务器地址
+- **account_name**: ZStack 账户名
+- **account_password**: ZStack 账户密码
+
+### 镜像配置
+- **image_name**: 日志服务器镜像名称
+- **image_url**: 镜像下载地址
+- **backup_storage_name**: 备份存储名称
+
+### 实例配置
+- **instance_name**: 虚拟机实例名称
+- **l3_network_name**: 网络名称，用于网络连接
+- **instance_offering_name**: 实例规格，决定资源分配
+
+### SSH 配置
+- **ssh_user**: SSH 连接用户名
+- **ssh_password**: SSH 连接密码
+
