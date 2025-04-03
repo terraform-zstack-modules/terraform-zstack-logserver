@@ -80,3 +80,9 @@ variable "ports" {
   description = "Service ports to expose"
   default     = [9200,3100,24224,3000,3100,514]
 }
+
+variable "never_stop" {
+  description = "VM HA"
+  type        = bool
+  default     = true
+}

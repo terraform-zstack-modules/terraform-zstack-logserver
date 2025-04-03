@@ -31,6 +31,7 @@ module "logserver_instance" {
   image_uuid    = module.log_server_image.image_uuid
   l3_network_name = var.l3_network_name
   instance_offering_name = var.instance_offering_name
+  never_stop  = var.never_stop
 }
 
 # 创建docker-compose文件
