@@ -46,11 +46,6 @@ output "service_ip" {
   value       = module.logserver_instance.instance_ips[0]
 }
 
-output "ports" {
-  description = "Service Ports"
-  value       = var.ports
-}
-
 output "es" {
   description = "elastic search endpoint"
   value = "http://${module.logserver_instance.instance_ips[0]}:9200/_cluster/health"

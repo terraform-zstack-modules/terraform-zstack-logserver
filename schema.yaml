@@ -73,23 +73,4 @@ components:
           x-walrus-ui:
             group: Basic
             order: 9
-        ports:
-          title: Ports
-          type: array
-          description: Service ports to expose
-          default:
-          - 9200
-          - 3100
-          - 24224
-          - 3000
-          - 3100
-          - 514
-          items:
-            type: number
-          x-walrus-ui:
-            colSpan: 12
-            group: Basic
-            order: 10
-      x-walrus-ui:
-        groupOrder:
-        - Basic
+
