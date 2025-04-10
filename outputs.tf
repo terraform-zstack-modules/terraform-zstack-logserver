@@ -65,3 +65,11 @@ output "kafka_ui" {
   description = "kafka ui"
   value = "http://${module.logserver_instance.instance_ips[0]}:7777/"
 }
+
+output "endpoints" {
+  value = {
+    kafka_ui    =  "http://${module.logserver_instance.instance_ips[0]}:7777/"
+    loki_api    = "http://${module.logserver_instance.instance_ips[0]}:3100/ready"
+    es_api      = "http://${module.logserver_instance.instance_ips[0]}:9200/_cluster/health"
+  }
+}

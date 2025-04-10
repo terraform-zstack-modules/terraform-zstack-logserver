@@ -59,6 +59,7 @@ components:
           type: string
           description: SSH username for remote access
           default: root
+          readOnly: true
           x-walrus-ui:
             group: Basic
             order: 8
@@ -68,7 +69,7 @@ components:
           description: SSH password for remote access
           default: password
           format: password
-          writeOnly: true
+          readOnly: true
           x-walrus-ui:
             group: Basic
             order: 9
