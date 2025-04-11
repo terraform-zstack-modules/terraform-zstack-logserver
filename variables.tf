@@ -80,3 +80,8 @@ variable "never_stop" {
   type        = bool
   default     = true
 }
+
+variable "expunge" {
+  type  = bool
+  default = true
+}

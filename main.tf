@@ -5,7 +5,7 @@ locals {
 
 # 使用镜像模块创建镜像
 module "log_server_image" {
-   source = "git::http://172.20.14.17/jiajian.chi/terraform-zstack-image.git"
+  source = "git::http://172.20.14.17/jiajian.chi/terraform-zstack-image.git?ref=v1.1.1"
 
 
   image_name  = var.image_name
@@ -16,11 +16,12 @@ module "log_server_image" {
   architecture = "x86_64"
   create_image = true
   backup_storage_name = var.backup_storage_name
+  expunge      = var.expunge
 }
 
 # 使用实例模块创建实例
 module "logserver_instance" {
-  source = "git::http://172.20.14.17/jiajian.chi/terraform-zstack-instance.git"
+  source = "git::http://172.20.14.17/jiajian.chi/terraform-zstack-instance.git?ref=v1.1.1"
   
 
   depends_on = [module.log_server_image]
@@ -32,6 +33,7 @@ module "logserver_instance" {
   l3_network_name = var.l3_network_name
   instance_offering_name = var.instance_offering_name
   never_stop  = var.never_stop
+  expunge     = var.expunge
 }
 
 # 创建docker-compose文件
