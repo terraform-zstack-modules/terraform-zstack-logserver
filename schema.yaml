@@ -70,6 +70,7 @@ components:
           default: password
           format: password
           readOnly: true
+          writeOnly: true
           x-walrus-ui:
             group: Basic
             order: 9
