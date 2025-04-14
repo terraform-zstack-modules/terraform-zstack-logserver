@@ -5,7 +5,7 @@ locals {
 
 # 使用镜像模块创建镜像
 module "log_server_image" {
-  source = "git::http://172.20.14.17/jiajian.chi/terraform-zstack-image.git?ref=v1.1.1"
+  source = "git::https://github.com/terraform-zstack-modules/terraform-zstack-image.git"
 
 
   image_name  = var.image_name
@@ -21,7 +21,7 @@ module "log_server_image" {
 
 # 使用实例模块创建实例
 module "logserver_instance" {
-  source = "git::http://172.20.14.17/jiajian.chi/terraform-zstack-instance.git?ref=v1.1.1"
+  source = "git::https://github.com/chijiajian/terraform-zstack-instance.git"
   
 
   depends_on = [module.log_server_image]
